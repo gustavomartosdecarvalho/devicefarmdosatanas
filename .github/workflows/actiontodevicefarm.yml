@@ -13,6 +13,13 @@ jobs:
   device-farm-test:
     runs-on: ubuntu-latest
     steps:
+
+      - name: Debug OIDC context
+        run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Ref: ${{ github.ref }}"
+          echo "Expected sub: repo:${{ github.repository }}:ref:${{ github.ref }}"
+          
       - name: Checkout code
         uses: actions/checkout@v4
 
