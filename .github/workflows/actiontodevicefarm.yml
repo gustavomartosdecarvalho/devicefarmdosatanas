@@ -31,7 +31,7 @@ jobs:
         run: |
           UPLOAD_JSON=$(aws devicefarm create-upload \
             --project-arn "arn:aws:devicefarm:us-west-2:129896631391:project:768d5015-901f-4d96-b28d-0876cf3948bd" \
-            --name "ARQUIVO.APK" \
+            --name "AWSDeviceFarmAndroidReferenceApp.APK" \
             --type ANDROID_APP)
           echo "upload_url=$(echo $UPLOAD_JSON | jq -r '.upload.url')" >> $GITHUB_OUTPUT
           echo "upload_arn=$(echo $UPLOAD_JSON | jq -r '.upload.arn')" >> $GITHUB_OUTPUT
