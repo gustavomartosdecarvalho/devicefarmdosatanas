@@ -16,9 +16,6 @@ jobs:
           
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Check APK exists
-        run: ls -la *.apk
         
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -60,3 +57,4 @@ jobs:
             --app-arn "${{ steps.create-upload.outputs.upload_arn }}" \
             --device-pool-arn "arn:aws:devicefarm:us-west-2::devicepool:082d10e5-d7d7-48a5-ba5c-b33d66efa1f5" \
             --name "GitHub Actions Run - ${{ github.run_number }}"
+            --test type=BUILTIN_FUZZ
