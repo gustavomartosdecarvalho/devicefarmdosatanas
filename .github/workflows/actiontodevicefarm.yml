@@ -13,16 +13,13 @@ jobs:
   device-farm-test:
     runs-on: ubuntu-latest
     steps:
-
-      - name: Debug OIDC context
-        run: |
-          echo "Repository: ${{ github.repository }}"
-          echo "Ref: ${{ github.ref }}"
-          echo "Expected sub: repo:${{ github.repository }}:ref:${{ github.ref }}"
           
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Check APK exists
+        run: ls -la *.apk
+        
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
